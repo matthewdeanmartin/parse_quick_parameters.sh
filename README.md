@@ -25,7 +25,7 @@ bpkg install parse_quick_parameters
 This is a fancy way of just downloading git files.
 ```
 pip install git-remote-get
-git-remote-get ./ --owner matthewdeanmartin --repo "parse_quick_parameters.sh" dependencies
+git-remote-get ./ --owner matthewdeanmartin --repo "parse_quick_parameters.sh" deps
 ```
 
 ## Usage
@@ -63,12 +63,12 @@ Shellcheck doesn't understand the pattern and will raise [SC2154](https://github
 ## Alternatives
 
 - [getopts](https://en.wikipedia.org/wiki/Getopts) Builtin bash command
-- [docopts](https://github.com/docopt/docopts) Shell version of docopts
+- [docopts](https://github.com/docopt/docopts) Shell version of `docopts`
 - [argparse-bash](https://github.com/nhoffman/argparse-bash) Use python's argparse in bash
 
 ## Contributing
 
-Use make file. `bats` tests assume bats was installed with npm. 
+Use `Makefile`. `bats` tests assume `bats` was installed with `npm`. 
 ```
 make format lint test
 ```
@@ -77,6 +77,3 @@ make format lint test
 ## Credits
 
 - [msknapp](https://github.com/msknapp/maintainable-bash/blob/master/1_init/3.1_parameters/shortcut.sh#L3)
-
-
-
