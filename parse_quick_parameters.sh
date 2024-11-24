@@ -7,7 +7,7 @@ function parse_quick_parameters {
 	[ "$t" -lt 4 ] && echo "Your bash version needs to be updated to 4+" && return 1
 	local def="$1"
 	shift
-	declare -A parm_map
+	declare -A parameter_map
 	for part in $(tr ',' ' ' <<<"$def"); do
 	  local variable
 		variable=$(cut -d= -f1 <<<"$part")
@@ -18,7 +18,7 @@ function parse_quick_parameters {
 		local commands
 		commands=$(cut -d= -f2 <<<"$part")
 		for command in $(tr '|' ' ' <<<"$commands"); do
-			parm_map[$command]=$variable
+			parameter_map[$command]=$variable
 		done
 	done
 	while [ "$1" ]; do
@@ -37,7 +37,7 @@ function parse_quick_parameters {
 		fi
 		# echo "Encountered: $1"
 		if [[ "$1" =~ -.* ]]; then
-			local var_name="${parm_map[$1]}"
+			local var_name="${parameter_map[$1]}"
 			if [[ "$var_name" =~ bool:.* ]]; then
 				var_name="${var_name#*:}"
 				eval "$var_name=true"

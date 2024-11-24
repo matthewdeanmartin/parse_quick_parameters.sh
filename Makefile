@@ -82,3 +82,12 @@ open_docs:
 	fi
 
 check: format lint test docs
+
+# pipx install codespell
+# cargo install typos-cli
+# npm i markdown-spellcheck -g
+# These checks aren't very strict because of the high false positive rate of spell checking source code.
+spellcheck:
+	codespell *.sh tests/*.sh README.md
+	typos README.md tests
+	mdspell README.md --report
