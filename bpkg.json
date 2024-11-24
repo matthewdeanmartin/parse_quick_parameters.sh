@@ -1,0 +1,7 @@
+{
+  "name": "parse_quick_parameters",
+  "version": "0.1.0",
+  "description": "Given docstring, generate named parameters for bash function",
+  "scripts": [ "parse_quick_parameters.sh" ],
+  "global": "false"
+}

@@ -1,0 +1,36 @@
+name: CI for Shell Scripts
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+
+jobs:
+  shell-testing:
+    name: Shell Script Testing
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4.2.2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4.1.0
+      with:
+        node-version: '18'
+
+    - name: Install Bats and Plugins
+      run: |
+        npm install -g bats
+        npm install --save-dev https://github.com/ztombol/bats-support
+        npm install --save-dev https://github.com/ztombol/bats-assert
+
+    - name: Run Bats Tests
+      run: make tests
+
+    - name: Install ShellCheck
+      run: sudo apt-get install -y shellcheck
+
+    - name: Run ShellCheck
+      run: shellcheck **/*.sh
