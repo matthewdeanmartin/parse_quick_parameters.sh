@@ -26,9 +26,18 @@ function do_something_quick {
     echo "my name is: $name"
     echo "run is: $run"
 }
+```
 
-do_something_quick --name name --run --file file
-do_something_quick "file" "name" --run
+```terminal
+>> source parse_quick_parameters.sh
+>> do_something_quick --name name --run --file file
+my file is: file
+my name is: name
+run is: true
+>> do_something_quick "file" "name" --run
+my file is: file
+my name is: name
+run is: true
 ```
 
 
@@ -46,8 +55,14 @@ Shellcheck doesn't understand the pattern and will raise [SC2154](https://github
 ## Contributing
 
 Use make file. `bats` tests assume bats was installed with npm. 
+```
+make format lint test
+```
+
 
 ## Credits
 
 - [msknapp](https://github.com/msknapp/maintainable-bash/blob/master/1_init/3.1_parameters/shortcut.sh#L3)
+
+
 
