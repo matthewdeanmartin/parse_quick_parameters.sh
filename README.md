@@ -8,17 +8,31 @@ Just copy the file or use package managers.
 
 ### Use bkpg
 
-Get [bpkg](https://www.bpkg.sh/) and then run:
+Get [bpkg](https://www.bpkg.sh/).
+
+To get the source version:
+```bash
+bpkg install matthewdeanmartin/parse_quick_parameters.sh
+```
+
+To get the hosted version:
 ```bash
 bpkg install parse_quick_parameters
 ```
 
+### Use git-remote-get
+
+This is a fancy way of just downloading git files.
+```
+pip install git-remote-get
+git-remote-get ./ --owner matthewdeanmartin --repo "parse_quick_parameters.sh" dependencies
+```
 
 ## Usage
 
 ```bash
 #!/usr/bin/env bash
-source dependencies/parse_quick_parameters/parse_quick_parameters.sh
+source deps/parse_quick_parameters/parse_quick_parameters.sh
 
 function do_something_quick {
     parse_quick_parameters "my_file=-f|--file,bool:run=-r|--run,name=-n|--name" "$@" || return 0
