@@ -6,6 +6,10 @@ on:
     - main
   pull_request:
 
+
+permissions:
+  contents: read
+
 jobs:
   shell-testing:
     name: Shell Script Testing
